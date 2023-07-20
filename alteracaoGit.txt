@@ -4,4 +4,3 @@ Frase 3
 Frase 4
 Frase 5
 Frase 6
-Frase 8
