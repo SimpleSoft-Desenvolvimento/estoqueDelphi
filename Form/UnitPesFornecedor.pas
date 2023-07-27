@@ -25,8 +25,9 @@ type
     procedure pesquisarTodos;
     procedure btnTransferirClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure imprimir();
+    procedure prepararQueryFilha();
     procedure btnImprimirClick(Sender: TObject);
-
   private
     { Private declarations }
   public
@@ -41,24 +42,33 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, FireDAC.Comp.Client;
 
-procedure TFrmPesFornecedor.btnImprimirClick(Sender: TObject);
+procedure TFrmPesFornecedor.imprimir();
 var
   caminho: string;
 begin
+
   caminho := ExtractFilePath(Application.ExeName);
   if DM.RelatorioPesqFornecedor.LoadFromFile(caminho + 'RelatorioFornecedor.fr3')
   then
   begin
+
     DM.RelatorioPesqFornecedor.Clear;
     DM.RelatorioPesqFornecedor.LoadFromFile
       (caminho + 'RelatorioFornecedor.fr3');
+    DM.RelatorioPesqFornecedor.Variables['vVariavel'] := QuotedStr(DM.usuarioNome);
     DM.RelatorioPesqFornecedor.PrepareReport(true);
     DM.RelatorioPesqFornecedor.ShowReport();
   end
   else
     MessageDlg('Relatório não encontrado', mtError, [mbOk], 0);
+end;
+
+procedure TFrmPesFornecedor.btnImprimirClick(Sender: TObject);
+begin
+  inherited;
+  prepararQueryFilha;
 end;
 
 procedure TFrmPesFornecedor.btnPesquisarClick(Sender: TObject);
@@ -133,6 +143,46 @@ begin
   DM.query_pesquisa.Open;
 
   configuraTabela();
+end;
+
+procedure TFrmPesFornecedor.prepararQueryFilha;
+var
+  queryFilha: TFDQuery;
+begin
+
+  queryFilha := TFDQuery.Create(self);
+  try
+  queryFilha.Connection := DM.conexao;
+  DM.DataSetPesqProdutoFornecedor.DataSet := queryFilha;
+
+  queryFilha.Close;
+
+  queryFilha.MasterSource := DM.ds_pesquisa;
+  queryFilha.MasterFields := 'FORNECEDOR_ID';
+  queryFilha.DetailFields := 'ID_FORNECEDOR';
+  queryFilha.IndexFieldNames := 'ID_FORNECEDOR';
+
+
+  queryFilha.SQL.Text := 'SELECT '
+    + 'PRODUTO_ID, '
+    + 'PRODUTO_DESCRICAO, '
+    + 'ID_FORNECEDOR, '
+    + 'PRODUTO_CUSTO, '
+    + 'PRODUTO_VENDA, '
+    + 'PRODUTO_ESTOQUE, '
+    + 'PRODUTO_ESTOQUE_MIN, '
+    + 'PRODUTO_UNIDADE, '
+    + 'PRODUTO_CADASTRO '
+    + 'FROM produto' ;
+
+  queryFilha.Open();
+
+  imprimir;
+
+  finally
+    queryFilha.Free;
+  end;
+
 end;
 
 procedure TFrmPesFornecedor.btnTransferirClick(Sender: TObject);

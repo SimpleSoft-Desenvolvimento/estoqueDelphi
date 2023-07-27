@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Height = 644
-  Width = 787
+  Height = 497
+  Width = 776
   object conexao: TFDConnection
     Params.Strings = (
       'Database=C:\Projetos_Matheus\Desktop\Banco de Dados\ESTOQUE.FDB'
@@ -559,20 +559,36 @@ object DM: TDM
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45043.712019097200000000
-    ReportOptions.LastChange = 45044.361742673610000000
+    ReportOptions.LastChange = 45133.721115000000000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
       ''
       'end.')
-    Left = 549
-    Top = 176
+    Left = 165
+    Top = 376
     Datasets = <
       item
         DataSet = DataSetPesqFornecedor
         DataSetName = 'frxDBFornecedores'
+      end
+      item
+        DataSet = DataSetPesqProdutoFornecedor
+        DataSetName = 'frxDBProdutosFornecedor'
+      end
+      item
+        DataSet = DataSetPesqUsuario
+        DataSetName = 'frxDBUsuarios'
       end>
-    Variables = <>
+    Variables = <
+      item
+        Name = ' Minhas Variaveis'
+        Value = Null
+      end
+      item
+        Name = 'vVariavel'
+        Value = Null
+      end>
     Style = <>
     object Data: TfrxDataPage
       Height = 1000.000000000000000000
@@ -595,89 +611,210 @@ object DM: TDM
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 34.015770000000000000
-        Top = 283.464750000000000000
+        Height = 196.535560000000000000
+        Top = 143.622140000000000000
         Width = 718.110700000000000000
         DataSet = DataSetPesqFornecedor
         DataSetName = 'frxDBFornecedores'
+        PrintIfDetailEmpty = True
         RowCount = 0
-        object frxDBUsuariosUSUARIO_ID: TfrxMemoView
-          IndexTag = 1
+        object Memo2: TfrxMemoView
           AllowVectorExport = True
-          Left = 226.771800000000000000
-          Top = 7.559060000000000000
-          Width = 264.567100000000000000
+          Left = 18.897650000000000000
+          Top = 52.913420000000000000
+          Width = 680.315400000000000000
+          Height = 124.724490000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_ENDERECO: TfrxMemoView
+          IndexTag = 1
+          Align = baRight
+          AllowVectorExport = True
+          Left = 30.236240000000000000
+          Top = 143.622140000000000000
+          Width = 241.889920000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_ENDERECO"],')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_BAIRRO: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 321.260050000000000000
+          Top = 143.622140000000000000
+          Width = 136.063080000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_BAIRRO"],')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_NUMERO: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 272.126160000000000000
+          Top = 143.622140000000000000
+          Width = 49.133890000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            ' [frxDBFornecedores."FORNECEDOR_NUMERO"],')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_UF: TfrxMemoView
+          IndexTag = 1
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 638.740570000000000000
+          Top = 143.622140000000000000
+          Width = 45.354360000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_UF"].')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_CIDADE: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 544.252320000000000000
+          Top = 143.622140000000000000
+          Width = 94.488250000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_CIDADE"],')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_NOME: TfrxMemoView
+          IndexTag = 1
+          Align = baRight
+          AllowVectorExport = True
+          Left = 26.456710000000000000
+          Top = 71.811070000000000000
+          Width = 238.110390000000000000
+          Height = 22.677180000000000000
+          DataField = 'FORNECEDOR_NOME'
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_NOME"]')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_CNPJ: TfrxMemoView
+          IndexTag = 1
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 264.567100000000000000
+          Top = 71.811070000000000000
+          Width = 181.417440000000000000
+          Height = 22.677180000000000000
+          DataField = 'FORNECEDOR_CNPJ'
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_CNPJ"]')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_CEP: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 457.323130000000000000
+          Top = 143.622140000000000000
+          Width = 86.929190000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqFornecedor
+          DataSetName = 'frxDBFornecedores'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDBFornecedores."FORNECEDOR_CEP"],')
+          ParentFont = False
+        end
+        object frxDBFornecedoresFORNECEDOR_EMAIL: TfrxMemoView
+          IndexTag = 1
+          Align = baRight
+          AllowVectorExport = True
+          Left = 26.456710000000000000
+          Top = 98.267780000000000000
+          Width = 691.653990000000000000
           Height = 18.897650000000000000
           DataField = 'FORNECEDOR_EMAIL'
           DataSet = DataSetPesqFornecedor
           DataSetName = 'frxDBFornecedores'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -16
           Font.Name = 'Arial'
           Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Typ = []
           Memo.UTF8W = (
             '[frxDBFornecedores."FORNECEDOR_EMAIL"]')
-          ParentFont = False
-        end
-        object frxDBClientesCLIENTE_ID: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Top = 7.559060000000000000
-          Width = 109.606370000000000000
-          Height = 18.897650000000000000
-          DataField = 'FORNECEDOR_ID'
-          DataSet = DataSetPesqFornecedor
-          DataSetName = 'frxDBFornecedores'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Memo.UTF8W = (
-            '[frxDBFornecedores."FORNECEDOR_ID"]')
-          ParentFont = False
-        end
-        object frxDBClientesCLIENTE_TELEFONE: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 109.606370000000000000
-          Top = 7.559060000000000000
-          Width = 117.165430000000000000
-          Height = 18.897650000000000000
-          DataField = 'FORNECEDOR_NOME'
-          DataSet = DataSetPesqFornecedor
-          DataSetName = 'frxDBFornecedores'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Memo.UTF8W = (
-            '[frxDBFornecedores."FORNECEDOR_NOME"]')
-          ParentFont = False
-        end
-        object frxDBClientesCLIENTE_ENDERECO: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 491.338900000000000000
-          Top = 7.559060000000000000
-          Width = 219.212740000000000000
-          Height = 18.897650000000000000
-          DataField = 'FORNECEDOR_CNPJ'
-          DataSet = DataSetPesqFornecedor
-          DataSetName = 'frxDBFornecedores'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Memo.UTF8W = (
-            '[frxDBFornecedores."FORNECEDOR_CNPJ"]')
           ParentFont = False
         end
       end
@@ -688,98 +825,193 @@ object DM: TDM
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 147.401670000000000000
+        Height = 64.252010000000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
-        object Memo1: TfrxMemoView
+        object Memo3: TfrxMemoView
           Align = baWidth
           AllowVectorExport = True
+          Top = 7.559060000000000000
           Width = 718.110700000000000000
-          Height = 64.252010000000000000
+          Height = 30.236240000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -20
+          Font.Height = -24
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = []
           HAlign = haCenter
           Memo.UTF8W = (
-            'Relat'#243'rio de Fornecedores - Sint'#233'tico ')
+            'Relat'#243'rio de Fornecedores')
           ParentFont = False
-          VAlign = vaCenter
+        end
+        object Date: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 563.149970000000000000
+          Top = 45.354360000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[Date]')
+          ParentFont = False
+        end
+        object Time: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 642.520100000000000000
+          Top = 45.354360000000000000
+          Width = 64.252010000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[Time]')
+          ParentFont = False
+        end
+        object vVariavel: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 453.543600000000000000
+          Top = 45.354360000000000000
+          Width = 105.826840000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[vVariavel]')
+          ParentFont = False
         end
       end
-      object PageHeader1: TfrxPageHeader
+      object DetailData1: TfrxDetailData
         FillType = ftBrush
         FillGap.Top = 0
         FillGap.Left = 0
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 34.015770000000000000
-        Top = 188.976500000000000000
+        Height = 30.236240000000000000
+        Top = 427.086890000000000000
         Width = 718.110700000000000000
-        object Memo2: TfrxMemoView
+        DataSet = DataSetPesqProdutoFornecedor
+        DataSetName = 'frxDBProdutosFornecedor'
+        RowCount = 0
+        object frxDBProdutosFornecedorPRODUTO_DESCRICAO: TfrxMemoView
+          IndexTag = 1
+          Align = baRight
           AllowVectorExport = True
-          Top = 7.559060000000000000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Left = 37.795300000000000000
+          Top = 3.779530000000000000
+          Width = 457.323130000000000000
+          Height = 22.677180000000000000
+          DataField = 'PRODUTO_DESCRICAO'
+          DataSet = DataSetPesqProdutoFornecedor
+          DataSetName = 'frxDBProdutosFornecedor'
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
+          Font.Height = -19
+          Font.Name = 'Arial Narrow'
+          Font.Style = []
+          Frame.Typ = [ftTop]
           Memo.UTF8W = (
-            'C'#243'digo')
+            '[frxDBProdutosFornecedor."PRODUTO_DESCRICAO"]')
           ParentFont = False
         end
-        object Memo3: TfrxMemoView
+        object Memo5: TfrxMemoView
+          IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
-          Left = 109.606370000000000000
-          Top = 7.559060000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
+          Left = 495.118430000000000000
+          Top = 3.779530000000000000
+          Width = 102.047310000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqProdutoFornecedor
+          DataSetName = 'frxDBProdutosFornecedor'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial Narrow'
+          Font.Style = []
+          Frame.Typ = [ftTop]
+          Memo.UTF8W = (
+            '[frxDBProdutosFornecedor."PRODUTO_ESTOQUE"]')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          IndexTag = 1
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 597.165740000000000000
+          Top = 3.779530000000000000
+          Width = 83.149660000000000000
+          Height = 22.677180000000000000
+          DataSet = DataSetPesqProdutoFornecedor
+          DataSetName = 'frxDBProdutosFornecedor'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Arial Narrow'
+          Font.Style = []
+          Frame.Typ = [ftTop]
+          Memo.UTF8W = (
+            '[frxDBProdutosFornecedor."PRODUTO_UNIDADE"]')
+          ParentFont = False
+        end
+      end
+      object Header1: TfrxHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 41.574830000000000000
+        Top = 362.834880000000000000
+        Width = 718.110700000000000000
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 30.236240000000000000
+          Width = 370.393940000000000000
+          Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -19
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Nome')
+            'Produtos:')
           ParentFont = False
         end
         object Memo4: TfrxMemoView
           AllowVectorExport = True
-          Left = 226.771800000000000000
-          Top = 7.559060000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
+          Left = 476.220780000000000000
+          Width = 132.283550000000000000
+          Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -19
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Email')
-          ParentFont = False
-        end
-        object Memo5: TfrxMemoView
-          AllowVectorExport = True
-          Left = 491.338900000000000000
-          Top = 7.559060000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'CNPJ')
+            'Quantidade:')
           ParentFont = False
         end
       end
@@ -804,8 +1036,8 @@ object DM: TDM
     DataSet = query_pesquisa
     BCDToCurrency = False
     DataSetOptions = []
-    Left = 677
-    Top = 176
+    Left = 277
+    Top = 352
   end
   object RelatorioPesqProduto: TfrxReport
     Version = '2023.1.3'
@@ -823,7 +1055,7 @@ object DM: TDM
       ''
       'end.')
     Left = 549
-    Top = 264
+    Top = 176
     Datasets = <
       item
         DataSet = DataSetPesqProduto
@@ -1100,7 +1332,7 @@ object DM: TDM
     BCDToCurrency = False
     DataSetOptions = []
     Left = 677
-    Top = 264
+    Top = 176
   end
   object query_item: TFDQuery
     Connection = conexao
@@ -1133,7 +1365,7 @@ object DM: TDM
       ''
       'end.')
     Left = 544
-    Top = 352
+    Top = 264
     Datasets = <
       item
         DataSet = DataSetPesqCompra
@@ -1464,7 +1696,7 @@ object DM: TDM
     BCDToCurrency = False
     DataSetOptions = []
     Left = 672
-    Top = 352
+    Top = 264
   end
   object frxPDFExport1: TfrxPDFExport
     UseFileCache = True
@@ -1492,8 +1724,8 @@ object DM: TDM
     PdfA = False
     PDFStandard = psNone
     PDFVersion = pv17
-    Left = 552
-    Top = 504
+    Left = 536
+    Top = 408
   end
   object RelatorioPesqVenda: TfrxReport
     Version = '2023.1.3'
@@ -1511,7 +1743,7 @@ object DM: TDM
       ''
       'end.')
     Left = 544
-    Top = 424
+    Top = 336
     Datasets = <
       item
         DataSet = DataSetPesqVenda
@@ -1810,6 +2042,24 @@ object DM: TDM
     BCDToCurrency = False
     DataSetOptions = []
     Left = 680
-    Top = 424
+    Top = 336
+  end
+  object DataSetPesqProdutoFornecedor: TfrxDBDataset
+    UserName = 'frxDBProdutosFornecedor'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'PRODUTO_ID=PRODUTO_ID'
+      'PRODUTO_DESCRICAO=PRODUTO_DESCRICAO'
+      'ID_FORNECEDOR=ID_FORNECEDOR'
+      'PRODUTO_CUSTO=PRODUTO_CUSTO'
+      'PRODUTO_VENDA=PRODUTO_VENDA'
+      'PRODUTO_ESTOQUE=PRODUTO_ESTOQUE'
+      'PRODUTO_ESTOQUE_MIN=PRODUTO_ESTOQUE_MIN'
+      'PRODUTO_UNIDADE=PRODUTO_UNIDADE'
+      'PRODUTO_CADASTRO=PRODUTO_CADASTRO')
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 272
+    Top = 408
   end
 end

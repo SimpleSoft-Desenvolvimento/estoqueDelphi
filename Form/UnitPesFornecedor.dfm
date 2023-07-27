@@ -1,6 +1,7 @@
 inherited FrmPesFornecedor: TFrmPesFornecedor
   Caption = 'Pesquisa por Fornecedor'
   OnClose = FormClose
+  ExplicitLeft = -152
   ExplicitWidth = 1146
   ExplicitHeight = 786
   PixelsPerInch = 96

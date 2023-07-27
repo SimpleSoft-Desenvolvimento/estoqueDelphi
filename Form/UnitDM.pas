@@ -35,6 +35,7 @@ type
     frxPDFExport1: TfrxPDFExport;
     RelatorioPesqVenda: TfrxReport;
     DataSetPesqVenda: TfrxDBDataset;
+    DataSetPesqProdutoFornecedor: TfrxDBDataset;
   private
     { Private declarations }
   public
